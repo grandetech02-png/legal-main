@@ -88,11 +88,11 @@ function PracticeAreaItem({ area, index, setCurrentPage }: PracticeAreaItemProps
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>
-        <div 
+        <div
           ref={imageRef}
           className={`relative transition-all duration-700 ease-out ${index % 2 === 1 ? 'md:order-1' : ''} ${
-            imageVisible 
-              ? 'opacity-100 translate-y-0' 
+            imageVisible
+              ? 'opacity-100 translate-y-0'
               : 'opacity-0 translate-y-8'
           }`}
           style={{ transitionDelay: '250ms' }}
@@ -101,10 +101,10 @@ function PracticeAreaItem({ area, index, setCurrentPage }: PracticeAreaItemProps
             <img
               src={
                 area.icon === 'scale'
-                  ? 'https://images.pexels.com/photos/8112199/pexels-photo-8112199.jpeg?auto=compress&cs=tinysrgb&w=800'
+                  ? 'https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=800'
                   : area.icon === 'shield'
-                  ? 'https://images.pexels.com/photos/5669602/pexels-photo-5669602.jpeg?auto=compress&cs=tinysrgb&w=800'
-                  : 'https://images.pexels.com/photos/7821677/pexels-photo-7821677.jpeg?auto=compress&cs=tinysrgb&w=800'
+                  ? 'https://images.pexels.com/photos/8430171/pexels-photo-8430171.jpeg?auto=compress&cs=tinysrgb&w=800'
+                  : 'https://images.pexels.com/photos/6112530/pexels-photo-6112530.jpeg?auto=compress&cs=tinysrgb&w=800'
               }
               alt={area.title}
               className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-500"
