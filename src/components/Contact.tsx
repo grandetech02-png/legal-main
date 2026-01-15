@@ -45,49 +45,7 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsSubmitting(true);
-
-  try {
-    const payload = {
-      name: `${formData.firstName} ${formData.lastName}`,
-      email: formData.email,
-      phone: formData.phone,
-      subject: "Formulario de contacto",
-      message: formData.message,
-    };
-
-    const { error } = await supabase.functions.invoke("send-contact-email", {
-      body: payload,
-    });
-
-    if (error) throw error;
-
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
-    });
-
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      message: "",
-    });
-  } catch (error) {
-    console.error("Error sending message:", error);
-    toast({
-      title: "Error",
-      description: "Failed to send message. Please try again.",
-      variant: "destructive",
-    });
-  } finally {
-    setIsSubmitting(false);
-  }
-};
-
+  const handleSubmit = async (e: React.FormEvent) => { e.preventDefault(); setIsSubmitting(true); try { const { data, error } = await supabase.functions.invoke("send-contact-email", { body: formData, }); if (error) throw error; toast({ title: "Message sent!", description: "We'll get back to you as soon as possible.", }); setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "", }); } catch (error: any) { console.error("Error sending message:", error); toast({ title: "Error", description: "Failed to send message. Please try again.", variant: "destructive", }); } finally { setIsSubmitting(false); } };
 
   return (
     <section id="contact" className="py-24 md:py-32 bg-foreground text-background">
