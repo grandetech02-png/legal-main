@@ -101,10 +101,10 @@ function PracticeAreaItem({ area, index, setCurrentPage }: PracticeAreaItemProps
             <img
               src={
                 area.icon === 'scale'
-                  ? 'https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=800'
+                  ? '/civillitigation.webp'
                   : area.icon === 'shield'
-                  ? 'https://images.pexels.com/photos/8430171/pexels-photo-8430171.jpeg?auto=compress&cs=tinysrgb&w=800'
-                  : 'https://images.pexels.com/photo/not-guilty-and-a-gavel-6077325/'
+                  ? '/criminal-defense.webp'
+                  : '/victims-rights.jpg'
               }
               alt={area.title}
               className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-500"
